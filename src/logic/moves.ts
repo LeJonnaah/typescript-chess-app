@@ -1,4 +1,4 @@
-export function canQueenMove(fromX: number, fromY: number, toX: number, toY: number) {
+function canQueenMove(fromX: number, fromY: number, toX: number, toY: number) {
     if (fromX === toX || fromY === toY) {
         return true;
     }
@@ -8,21 +8,21 @@ export function canQueenMove(fromX: number, fromY: number, toX: number, toY: num
     return false;
 }
 
-export function canRookMove(fromX: number, fromY: number, toX: number, toY: number) {
+function canRookMove(fromX: number, fromY: number, toX: number, toY: number) {
     if (fromX === toX || fromY === toY) {
         return true;
     }
     return false;
 }
 
-export function canBishopMove(fromX: number, fromY: number, toX: number, toY: number) {
+function canBishopMove(fromX: number, fromY: number, toX: number, toY: number) {
     if (Math.abs(fromX - toX) === Math.abs(fromY - toY)) {
         return true;
     }
     return false;
 }
 
-export function canKnightMove(fromX: number, fromY: number, toX: number, toY: number) {
+function canKnightMove(fromX: number, fromY: number, toX: number, toY: number) {
     if (Math.abs(fromX - toX) === 2 && Math.abs(fromY - toY) === 1) {
         return true;
     }
@@ -32,21 +32,21 @@ export function canKnightMove(fromX: number, fromY: number, toX: number, toY: nu
     return false;
 }
 
-export function canKingMove(fromX: number, fromY: number, toX: number, toY: number) {
+function canKingMove(fromX: number, fromY: number, toX: number, toY: number) {
     if (Math.abs(fromX - toX) <= 1 && Math.abs(fromY - toY) <= 1) {
         return true;
     }
     return false;
 }
 
-export function canPawnMove(fromX: number, fromY: number, toX: number, toY: number) {
+function canPawnMove(fromX: number, fromY: number, toX: number, toY: number) {
     if (fromX === toX && fromY - toY === 1) {
         return true;
     }
     return false;
 }
 
-export function isMovePossible(piece: string, fromX: number, fromY: number, toX: number, toY: number) {
+function isMovePossible(piece: string, fromX: number, fromY: number, toX: number, toY: number) {
     switch (piece) {
         case 'queen':
             return canQueenMove(fromX, fromY, toX, toY);

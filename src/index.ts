@@ -119,25 +119,7 @@ function fillBoard() {
     }
 }
 
-function randomPawnMove() {
-    const fromX = Math.floor(Math.random() * 8);
-    const fromY = Math.floor(Math.random() * 8);
-    const toX = fromX;
-    const toY = fromY - 1;
-    return { fromX, fromY, toX, toY };
-}
 
-app.post('/pawnMove', (req, res) => {
-    const { fromX, fromY, toX, toY } = randomPawnMove();
-    if (isMoveLegal('pawn', fromX, fromY, toX, toY)) {
-        chessBoard[toY][toX] = 'pawn';
-        chessBoard[fromY][fromX] = null;
-        res.send(chessBoard);
-    } else {
-        res.status(400).send('Illegal move!');
-        console.log(req.body);
-    }
-});
 
 app.post('/move', (req, res) => {
     const { piece, fromX, fromY, toX, toY } = req.body;
